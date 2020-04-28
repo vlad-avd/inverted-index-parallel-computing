@@ -1,8 +1,6 @@
 package ua.kpi.iasa;
 
 import java.io.File;
-import java.util.List;
-import java.util.Map;
 
 public class Utils {
 
@@ -12,7 +10,7 @@ public class Utils {
     private static final int FILES_NEED2 = 1000;
     private static final int VARIANT = 23;
 
-    public static String[] getFiles(){
+    public static File[] getFiles(){
         int startIdx1 = FILES_TOTAL1/FILES_NEED1*(VARIANT - 1);
         int startIdx2 = FILES_TOTAL2/FILES_NEED2*(VARIANT - 1);
 

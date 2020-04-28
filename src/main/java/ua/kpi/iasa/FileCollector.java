@@ -2,17 +2,18 @@ package ua.kpi.iasa;
 
 import org.apache.maven.surefire.shade.org.apache.maven.shared.utils.io.DirectoryScanner;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 class FileCollector{
 
-    private static List<String> absolutePaths = new ArrayList<String>();
+    private static List<File> absolutePaths = new ArrayList<File>();
 
     DirectoryScanner scanner = new DirectoryScanner();
 
-    public String[] getFilesAbsolutePath(){
-        return absolutePaths.toArray(new String[0]);
+    public File[] getFilesAbsolutePath(){
+        return absolutePaths.toArray(new File[0]);
     }
 
     public void addFilesFromDir(String dir, int startIdx, int filesNumber){
@@ -32,7 +33,7 @@ class FileCollector{
         String[] files = scanner.getIncludedFiles();
 
         for(String file : files){
-            absolutePaths.add(dir + "\\" + file);
+            absolutePaths.add(new File(dir + "\\" + file));
         }
     }
 }

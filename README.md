@@ -6,9 +6,11 @@ Programm builds simple inverted index of .txt files in multi-thread mode
 
 Install JDK 8 or or newer version
 
-Go to the src/main/java/ua/kpi/iasa and compile them using java ClassName.java
+Go to the src/main/java/ua/kpi/iasa and compile java classes using
+java ClassName.java
 
-Launch Demo class using Demo.java
+Launch Demo class using
+java Demo.java
 
 ## Usage
 

@@ -7,46 +7,49 @@ import java.util.Map;
 
 public class InvertedIndexCalcThread extends Thread {
 
-    private File[] files;
+    private final File[] files;
     private int idx;
     public Map<Integer,File> fileIndex;
     public HashMap<String, HashSet<Integer>> invertedIndex;
 
-    public Map<Integer, File> getSources() {
+    public Map<Integer, File> getFileIndex() {
         return fileIndex;
     }
 
-    public HashMap<String, HashSet<Integer>> getIndex() {
+    public HashMap<String, HashSet<Integer>> getInvertedIndex() {
         return invertedIndex;
     }
 
     {
-        fileIndex = new HashMap<Integer,File>();
-        invertedIndex = new HashMap<String, HashSet<Integer>>();
+        fileIndex = new HashMap<>();
+        invertedIndex = new HashMap<>();
     }
 
     public InvertedIndexCalcThread(File[] files, int idx) {
-
         this.files = files;
         this.idx = idx;
     }
 
     @Override
-    public void run() { // TODO: delete service symbols and tags
+    public void run() {
         for(File fileName : files){
 
             try(BufferedReader file = new BufferedReader(new FileReader(fileName)))
             {
                 fileIndex.put(idx,fileName);
-                String ln;
+                String line;
 
-                while( (ln = file.readLine()) !=null) {
+                while( (line = file.readLine()) != null) {
 
-                    String[] words = ln.split(" ");
+                    line = line.replaceAll("<br />", " ")
+                            .replaceAll("\\W", " ")
+                            .replaceAll(" +", " ")
+                            .trim()
+                            .toLowerCase();
+
+                    String[] words = line.split(" ");
 
                     for(String word:words){
-
-                        word = word.toLowerCase();
 
                         if (!invertedIndex.containsKey(word)) {
                             invertedIndex.put(word, new HashSet<Integer>());

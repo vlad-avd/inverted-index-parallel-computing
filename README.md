@@ -8,7 +8,7 @@ Install JDK 8 or or newer version
 
 Go to the src/main/java/ua/kpi/iasa and compile java classes using
 ```bash
-java ClassName.java
+javac ClassName.java
 ```
 
 Launch Demo class using

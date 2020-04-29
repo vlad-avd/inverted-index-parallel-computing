@@ -8,7 +8,7 @@ import java.util.List;
 
 class FileCollector{
 
-    private static List<File> absolutePaths = new ArrayList<File>();
+    private static final List<File> absolutePaths = new ArrayList<>();
 
     DirectoryScanner scanner = new DirectoryScanner();
 

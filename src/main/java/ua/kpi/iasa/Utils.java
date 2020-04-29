@@ -8,11 +8,12 @@ public class Utils {
     private static final int FILES_TOTAL2 = 50000;
     private static final int FILES_NEED1 = 250;
     private static final int FILES_NEED2 = 1000;
+    private static final int PARTS_NUMBER = 50;
     private static final int VARIANT = 23;
 
-    public static File[] getFiles(){
-        int startIdx1 = FILES_TOTAL1/FILES_NEED1*(VARIANT - 1);
-        int startIdx2 = FILES_TOTAL2/FILES_NEED2*(VARIANT - 1);
+    public static File[] getFiles() {
+        int startIdx1 = FILES_TOTAL1/PARTS_NUMBER * (VARIANT - 1);
+        int startIdx2 = FILES_TOTAL2/PARTS_NUMBER * (VARIANT - 1);
 
         String dir1 = "C:\\Users\\avdie\\Desktop\\aclImdb\\test\\neg";
         String dir2 = "C:\\Users\\avdie\\Desktop\\aclImdb\\test\\pos";
